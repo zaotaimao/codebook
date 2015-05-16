@@ -1,0 +1,30 @@
+        <TableRow
+            xmlns:android="http://schemas.android.com/apk/res/android"
+    		xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:hint="名称"/>
+
+            <EditText
+				android:layout_weight="1"
+				android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:hint="密码"/>
+            
+            <ImageView
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:contentDescription="删除"
+                android:src="@drawable/del"/>
+
+        </TableRow>
