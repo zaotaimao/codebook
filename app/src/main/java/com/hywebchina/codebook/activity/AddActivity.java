@@ -2,6 +2,7 @@ package com.hywebchina.codebook.activity;
 
 import java.util.Date;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -42,6 +43,9 @@ public class AddActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         mInflater=LayoutInflater.from(this);
 
         pageDao = getHelper().getCodePageDao();
@@ -73,6 +77,9 @@ public class AddActivity extends OrmLiteBaseActivity<DatabaseHelper> {
                     this.finish();
                 }
                 break;
+            case android.R.id.home:
+                this.finish();
+                overridePendingTransition(R.anim.not_move, R.anim.out_from_right);
             default:
                 break;
         }

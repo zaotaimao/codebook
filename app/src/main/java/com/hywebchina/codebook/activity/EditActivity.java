@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -49,6 +50,9 @@ public class EditActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         mInflater=LayoutInflater.from(this);
 
         pageDao = getHelper().getCodePageDao();
@@ -98,6 +102,9 @@ public class EditActivity extends OrmLiteBaseActivity<DatabaseHelper> {
                     overridePendingTransition(R.anim.not_move, R.anim.not_move);
                 }
                 break;
+            case android.R.id.home:
+                this.finish();
+                overridePendingTransition(R.anim.not_move, R.anim.out_from_right);
             default:
                 break;
         }
