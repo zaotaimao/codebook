@@ -1,5 +1,7 @@
 package com.hywebchina.codebook.service;
 
+import android.content.Context;
+
 import com.hywebchina.codebook.db.DatabaseHelper;
 import com.hywebchina.codebook.db.model.CodeLine;
 import com.hywebchina.codebook.db.model.MainPassword;
@@ -22,8 +24,8 @@ public class PasswordService {
     private RuntimeExceptionDao<MainPassword, Integer> dao;
     private RuntimeExceptionDao<CodeLine, Integer> lineDao;
 
-    public PasswordService(DatabaseHelper helper) {
-        this.helper = helper;
+    public PasswordService(Context context) {
+        this.helper = new DatabaseHelper(context);
         this.dao = helper.getMainPasswordDao();
         this.lineDao = helper.getCodeLineDao();
     }

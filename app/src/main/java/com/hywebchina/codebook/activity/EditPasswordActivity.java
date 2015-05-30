@@ -52,7 +52,7 @@ public class EditPasswordActivity extends OrmLiteBaseActivity<DatabaseHelper> {
             Toast.makeText(this, "两次输入的新密码不一致!", Toast.LENGTH_SHORT).show();
         }
         else{
-            PasswordService service = new PasswordService(getHelper());
+            PasswordService service = new PasswordService(this);
             try {
                 service.changeMainPassword(oldPasswordStr, passwordStr0);
                 MyApplication app = (MyApplication) getApplication();
