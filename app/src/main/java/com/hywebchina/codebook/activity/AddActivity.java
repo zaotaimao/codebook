@@ -45,6 +45,7 @@ public class AddActivity extends OrmLiteBaseActivity<DatabaseHelper> {
         setContentView(R.layout.activity_add);
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
 
         mInflater=LayoutInflater.from(this);
 

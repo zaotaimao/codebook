@@ -63,11 +63,16 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.action_add:
-                Intent intent = new Intent(this, AddActivity.class);
+                intent = new Intent(this, AddActivity.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.in_from_right, R.anim.not_move);
+                break;
+            case R.id.action_edit:
+                intent = new Intent(this, EditPasswordActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
