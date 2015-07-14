@@ -43,13 +43,13 @@ public class EditPasswordActivity extends OrmLiteBaseActivity<DatabaseHelper> {
         //检查旧密码是否正确
         MainPassword entity = dao.queryForId(1);
         if(StringUtil.isBlank(oldPasswordStr)||StringUtil.isBlank(passwordStr0)||StringUtil.isBlank(passwordStr1)){
-            Toast.makeText(this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_null_password), Toast.LENGTH_SHORT).show();
         }
         else if(!StringUtil.md5Digest(oldPasswordStr).equals(entity.getPassword())){
-            Toast.makeText(this, "旧密码错误！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_old_password_wrong), Toast.LENGTH_SHORT).show();
         }
         else if(!passwordStr0.equals(passwordStr1)){
-            Toast.makeText(this, "两次输入的新密码不一致!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_not_same), Toast.LENGTH_SHORT).show();
         }
         else{
             PasswordService service = new PasswordService(this);

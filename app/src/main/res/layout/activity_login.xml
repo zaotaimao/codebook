@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/password"
         android:layout_toLeftOf="@+id/password"
-        android:text="@string/tv_password"/>
+        android:text="@string/password"/>
     
     <EditText
         android:id="@+id/password"
@@ -30,6 +30,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:onClick="login"
-        android:text="@string/btn_login"/>
+        android:text="@string/login"/>
 
 </RelativeLayout>

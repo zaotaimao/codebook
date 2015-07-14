@@ -12,7 +12,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:imeOptions="actionNext"
-                android:hint="名称"/>
+                android:hint="@string/name"/>
 
             <EditText
 				android:layout_weight="1"
@@ -21,12 +21,12 @@
                 android:singleLine="true"
                 android:imeOptions="actionNext"
                 android:inputType="textPassword"
-                android:hint="密码"/>
+                android:hint="@string/password"/>
             
             <ImageView
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:contentDescription="删除"
+                android:contentDescription="@string/delete"
                 android:src="@drawable/del"/>
 
         </TableRow>

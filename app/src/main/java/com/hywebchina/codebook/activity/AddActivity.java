@@ -89,7 +89,7 @@ public class AddActivity extends OrmLiteBaseActivity<DatabaseHelper> {
     private int save() {
         String pName = pageName.getText().toString();
         if(StringUtil.isBlank(pName)){
-            Toast.makeText(this, "值不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_null_value), Toast.LENGTH_SHORT).show();
             return 0;
         }
         CodePage page = new CodePage(pName, new Date(), 0);
@@ -101,7 +101,7 @@ public class AddActivity extends OrmLiteBaseActivity<DatabaseHelper> {
             String lName = lineName.getText().toString();
             String lPassword = linePassword.getText().toString();
             if(StringUtil.isBlank(lName) || StringUtil.isBlank(lPassword)){
-                Toast.makeText(this, "值不能为空！", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, this.getString(R.string.error_null_value), Toast.LENGTH_SHORT).show();
                 return 0;
             }
 

@@ -109,8 +109,8 @@ public class ViewActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
     private void delete() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("您确定要删除么？");
-        builder.setPositiveButton("确定",new DialogInterface.OnClickListener() {
+        builder.setMessage(this.getString(R.string.delete_confirm));
+        builder.setPositiveButton(this.getString(R.string.confirm),new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog,int id) {
                 lineDao.delete(page.getLines());
                 pageDao.delete(page);
@@ -118,7 +118,7 @@ public class ViewActivity extends OrmLiteBaseActivity<DatabaseHelper> {
                 overridePendingTransition(R.anim.not_move, R.anim.out_from_right);
             }
         });
-        builder.setNegativeButton("取消", null);
+        builder.setNegativeButton(this.getString(R.string.cancel), null);
         AlertDialog alert = builder.create();
         alert.show();
     }

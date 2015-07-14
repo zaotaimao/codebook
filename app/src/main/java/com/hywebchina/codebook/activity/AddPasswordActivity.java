@@ -40,10 +40,10 @@ public class AddPasswordActivity extends OrmLiteBaseActivity<DatabaseHelper> {
         String passwordStr1 = password1.getText().toString();
 
         if(StringUtil.isBlank(passwordStr0)||StringUtil.isBlank(passwordStr1)){
-            Toast.makeText(this, "密码不能为空！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_null_password), Toast.LENGTH_SHORT).show();
         }
         else if(!passwordStr0.equals(passwordStr1)){
-            Toast.makeText(this, "两次输入的新密码不一致!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_not_same), Toast.LENGTH_SHORT).show();
         }
         else{
             MainPassword pwd = new MainPassword(StringUtil.md5Digest(passwordStr0), new Date(), 0, false);

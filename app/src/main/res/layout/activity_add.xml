@@ -19,13 +19,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:singleLine="true"
-            android:hint="名称"
+            android:hint="@string/name"
             android:ems="10"/>
         <ImageView
             android:id="@+id/img1"
             android:layout_width="33dp"
             android:layout_height="33dp"
-            android:contentDescription="添加"
+            android:contentDescription="@string/add_row"
             android:src="@drawable/add"
             android:layout_alignParentRight="true"
             android:layout_alignBottom="@+id/pageName"/>

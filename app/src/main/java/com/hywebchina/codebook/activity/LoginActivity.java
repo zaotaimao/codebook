@@ -48,11 +48,11 @@ public class LoginActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
         if(entity.isLocked()){
             Log.d(TAG, "locked");
-            Toast.makeText(this, "已被锁定！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_locked), Toast.LENGTH_SHORT).show();
         }
         else if(!checkPassword(passwordStr)){
             Log.d(TAG, "wrong password");
-            Toast.makeText(this, "密码错误！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, this.getString(R.string.error_password_wrong), Toast.LENGTH_SHORT).show();
             entity.addWrongTimes(1);//将错误次数加1，如果错误次数达到10，锁定账号
             dao.update(entity);
         }

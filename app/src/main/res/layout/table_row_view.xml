@@ -21,7 +21,7 @@
             <ImageView
                 android:layout_width="33dp"
                 android:layout_height="33dp"
-                android:contentDescription="显示"
+                android:contentDescription="@string/see"
                 android:src="@drawable/see"/>
 
         </TableRow>
