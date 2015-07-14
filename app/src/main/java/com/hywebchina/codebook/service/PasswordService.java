@@ -7,6 +7,7 @@ import com.hywebchina.codebook.db.model.CodeLine;
 import com.hywebchina.codebook.db.model.MainPassword;
 import com.hywebchina.codebook.util.DesUtil;
 import com.hywebchina.codebook.util.StringUtil;
+import com.hywebchina.codebook.R;
 import com.j256.ormlite.android.AndroidDatabaseConnection;
 import com.j256.ormlite.dao.RuntimeExceptionDao;
 import com.j256.ormlite.support.DatabaseConnection;
@@ -23,11 +24,13 @@ public class PasswordService {
     private DatabaseHelper helper;
     private RuntimeExceptionDao<MainPassword, Integer> dao;
     private RuntimeExceptionDao<CodeLine, Integer> lineDao;
+    private Context context;
 
     public PasswordService(Context context) {
         this.helper = new DatabaseHelper(context);
         this.dao = helper.getMainPasswordDao();
         this.lineDao = helper.getCodeLineDao();
+        this.context = context;
     }
 
     public void changeMainPassword(String oldPassword, String newPassword) throws Exception {
@@ -45,9 +48,9 @@ public class PasswordService {
             DesUtil newDes = new DesUtil(newPassword);
             List<CodeLine> lineList = lineDao.queryForAll();
             for(CodeLine line : lineList){
-                String encryptStr = line.getPassword();//µÃµ½ÃÜÂëµÄÃÜÎÄ
-                String str = oldDes.decrypt(encryptStr);//µÃµ½ÃÜÂëµÄÃ÷ÎÄ
-                encryptStr = newDes.encrypt(str);//ÖØĞÂ¼ÆËã³öÃÜÎÄ
+                String encryptStr = line.getPassword();//å¾—åˆ°å¯†ç çš„å¯†æ–‡
+                String str = oldDes.decrypt(encryptStr);//å¾—åˆ°å¯†ç çš„æ˜æ–‡
+                encryptStr = newDes.encrypt(str);//é‡æ–°è®¡ç®—å‡ºå¯†æ–‡
                 line.setPassword(encryptStr);
                 lineDao.update(line);
             }
@@ -59,7 +62,7 @@ public class PasswordService {
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
-            throw new Exception("ÃÜÂëÎ´ĞŞ¸Ä³É¹¦£¬ÒÑ¾­rollback");
+            throw new Exception(context.getString(R.string.error_change_main_password_fail));
         }
     }
 }
